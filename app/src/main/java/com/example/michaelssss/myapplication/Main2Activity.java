@@ -1,7 +1,6 @@
 package com.example.michaelssss.myapplication;
 
 import android.Manifest;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,6 +11,7 @@ import android.util.Log;
 
 import java.util.Arrays;
 
+import static android.Manifest.permission.INTERNET;
 import static android.Manifest.permission.READ_SMS;
 import static android.Manifest.permission.RECEIVE_SMS;
 
@@ -20,15 +20,15 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.i("Main2Activity", "check permission");
-        if (ContextCompat.checkSelfPermission(this, RECEIVE_SMS) == PackageManager.PERMISSION_DENIED || ContextCompat.checkSelfPermission(this, READ_SMS) == PackageManager.PERMISSION_DENIED) {
+        if (ContextCompat.checkSelfPermission(this, RECEIVE_SMS) == PackageManager.PERMISSION_DENIED ||
+                ContextCompat.checkSelfPermission(this, READ_SMS) == PackageManager.PERMISSION_DENIED ||
+                ContextCompat.checkSelfPermission(this, INTERNET) == PackageManager.PERMISSION_DENIED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.RECEIVE_SMS)) {
             } else {
-                ActivityCompat.requestPermissions(this, new String[]{RECEIVE_SMS, READ_SMS}, 1);
+                ActivityCompat.requestPermissions(this, new String[]{RECEIVE_SMS, READ_SMS, INTERNET}, 1);
             }
         }
         super.onCreate(savedInstanceState);
-        Intent intent = new Intent(this, MyService.class);
-        this.startService(intent);
         setContentView(R.layout.activity_main2);
     }
 
