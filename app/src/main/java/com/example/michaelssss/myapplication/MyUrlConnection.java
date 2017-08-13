@@ -15,7 +15,7 @@ public class MyUrlConnection {
 
     public void sendMessage(String message) {
         try {
-            HttpURLConnection urlConnection = (HttpURLConnection) URI.create("http://michaelssss.com:8080/sayHello").toURL().openConnection();
+            HttpURLConnection urlConnection = (HttpURLConnection) URI.create("http://192.168.1.9:8080/logsms").toURL().openConnection();
             urlConnection.setRequestMethod("POST");
             urlConnection.setDoOutput(true);
             try (OutputStream outputStream = urlConnection.getOutputStream()) {

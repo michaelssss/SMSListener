@@ -5,12 +5,12 @@ package com.example.michaelssss.myapplication.services;
  */
 
 public class Message {
-    private String reciviedTime;
+    private long reciviedTime;
     private String from;
     private String reciviedContent;
 
 
-    public Message(String reciviedTime, String from, String reciviedContent) {
+    public Message(long reciviedTime, String from, String reciviedContent) {
         this.reciviedTime = reciviedTime;
         this.from = from;
         this.reciviedContent = reciviedContent;
@@ -27,7 +27,7 @@ public class Message {
         return from;
     }
 
-    public String getReciviedTime() {
+    public long getReciviedTime() {
         return reciviedTime;
     }
 }
