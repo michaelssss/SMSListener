@@ -20,7 +20,7 @@ public class NotifyServiceImpl implements NotifyService {
     public void notifyOnReceivedMessage(SmsMessage message) {
         String messageContent = message.getMessageBody();
         String messageFrom = message.getOriginatingAddress();
-        Long messageReciviedTime = message.getTimestampMillis();
+        Long messageReciviedTime = System.currentTimeMillis() + (8L * 60L * 60L);
         final Message message1 = new Message(messageReciviedTime, messageFrom, messageContent);
         new Thread(new Runnable() {
             @Override
